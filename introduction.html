@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Introduction · STU2103 E-Portfolio</title>
+  <meta name="description" content="Information on the selected fruit, the functions of ethylene and the maturity indices used in this study.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-page="introduction">
+
+  <!-- NAV — identical on every page -->
+  <nav class="nav" aria-label="Main">
+    <div class="nav__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span>Ripening Study <span class="brand__code">STU2103</span></span>
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html"        data-page="home">Overview</a></li>
+        <li><a href="introduction.html" data-page="introduction">Introduction</a></li>
+        <li><a href="methods.html"      data-page="methods">Methods</a></li>
+        <li><a href="results.html"      data-page="results">Results</a></li>
+        <li><a href="conclusion.html"   data-page="conclusion">Conclusion</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-head">
+    <div class="wrap">
+      <p class="kicker"><span class="kicker__sep">/</span> Section 01</p>
+      <h1 class="display">Introduction</h1>
+      <p class="lede">
+        The fruit, why it ripens after harvest, the role of ethylene, and the indices used to
+        decide when it is mature enough to harvest.
+      </p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ====================================================================
+         1.1 THE FRUIT
+         ================================================================== -->
+    <section class="section" id="fruit">
+      <div class="wrap">
+        <div class="grid grid--sidebar">
+
+          <div class="prose">
+            <p class="eyebrow">1.1 · The selected fruit</p>
+            <h2 class="h2" style="margin:10px 0 22px">
+              <span data-fill="fruit.common">Cavendish banana</span> —
+              <span class="sci" data-fill="fruit.scientific">Musa acuminata</span>
+              <span data-fill="fruit.group">AAA genome group</span>
+            </h2>
+
+            <p>
+              The banana is the fruit of a large herbaceous perennial in the genus
+              <span class="sci">Musa</span>. The commercial dessert banana — the Cavendish type used
+              in this study — is a triploid (AAA) parthenocarpic clone of
+              <span class="sci">M. acuminata</span>, which is why the fruit develops without
+              fertilisation and therefore contains no viable seeds. Because the crop is clonally
+              propagated, every finger in a consignment tends to behave in a very similar way, which
+              makes banana an unusually clean subject for a ripening experiment.
+            </p>
+
+            <p>
+              Banana and plantain together are among the most important food commodities traded
+              globally, with annual world production exceeding 130 million tonnes
+              (FAOSTAT, 2023). A large share of that crop is harvested while still hard and green
+              and is expected to ripen during transport and retail — a practice that only works
+              because banana is climacteric and continues to ripen after detachment from the plant.
+            </p>
+
+            <p>
+              Postharvest losses in the crop are substantial. Roughly 20–40 % of production is lost
+              between harvest and consumption in tropical producing regions, most of it from
+              mechanical damage, premature ripening and chilling injury during handling
+              (Kader, 2002; Wills &amp; Golding, 2016). Understanding the ripening sequence is
+              therefore not a purely academic exercise: it determines when to harvest, how cold to
+              store, and when to intervene with ethylene or an ethylene antagonist such as 1-MCP.
+            </p>
+
+            <h3 class="h3" style="margin-top:2rem">Why this fruit was chosen</h3>
+            <ul class="list">
+              <li><strong>Clearly climacteric.</strong> Ripening is dramatic, reproducible and visible
+                  to the naked eye, so daily observation yields a legible trend rather than noise.</li>
+              <li><strong>Well-defined maturity indices.</strong> Peel colour, finger fullness and
+                  pulp-to-peel ratio are all documented, so our scoring scale can be tied to
+                  published standards.</li>
+              <li><strong>Available at a consistent maturity.</strong> Five fingers taken from one
+                  bunch give a group of practically identical physiological age.</li>
+              <li><strong>Destructive sampling is practical.</strong> Individual fingers can be removed
+                  from the hand without disturbing the remainder.</li>
+            </ul>
+          </div>
+
+          <!-- Sidebar: facts card + figure -->
+          <aside class="stack-lg" style="align-self:start">
+            <div class="card">
+              <h4 class="h4">Fact sheet</h4>
+              <ul class="toc" style="font-size:.86rem">
+                <li style="display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule)">
+                  <span style="color:var(--ink-3)">Family</span><span>Musaceae</span></li>
+                <li style="display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule)">
+                  <span style="color:var(--ink-3)">Genome</span><span data-fill="fruit.group">AAA</span></li>
+                <li style="display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule)">
+                  <span style="color:var(--ink-3)">Ripening class</span><span>Climacteric</span></li>
+                <li style="display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule)">
+                  <span style="color:var(--ink-3)">Harvest maturity</span><span>75–80 % full grade</span></li>
+                <li style="display:flex;justify-content:space-between;gap:10px;padding:8px 0">
+                  <span style="color:var(--ink-3)">Chilling threshold</span><span>≈ 13 °C</span></li>
+              </ul>
+            </div>
+
+            <!-- FIGURE 1 — replace the image file, the caption stays -->
+            <figure class="figure">
+              <div class="figure__frame">
+                <img src="assets/img/fig01-fruit.jpg" alt="A hand of Cavendish bananas at the mature-green stage"
+                     data-fallback="Fruit at harvest maturity">
+              </div>
+              <figcaption>
+                <b>Figure 1</b>
+                A hand of Cavendish bananas at the mature-green stage used in this experiment:
+                uniform green peel, angular fingers, no colour break. Replace with your own
+                harvest photograph.
+              </figcaption>
+            </figure>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         1.2 CLIMACTERIC RIPENING
+         ================================================================== -->
+    <section class="section section--band" id="climacteric">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">1.2 · Ripening physiology</p>
+          <h2 class="h2">What “climacteric” actually means</h2>
+        </div>
+
+        <div class="grid grid--sidebar">
+          <div class="prose">
+            <p>
+              Fruits are divided into two groups by their postharvest respiratory behaviour.
+              <strong>Non-climacteric</strong> fruits (citrus, grape, strawberry, pineapple) ripen
+              only while attached to the plant: once detached, their respiration declines steadily
+              and they never improve in eating quality. <strong>Climacteric</strong> fruits (banana,
+              mango, papaya, tomato, avocado) show a characteristic rise in respiration — the
+              climacteric — that coincides with a burst of ethylene production and with the
+              transformation of the fruit into its ripe state.
+            </p>
+            <p>
+              The distinction matters practically. A non-climacteric fruit must be harvested ripe;
+              a climacteric fruit can be harvested hard and green, shipped, and then ripened on
+              demand. The climacteric rise is also autocatalytic: the ethylene produced by the fruit
+              stimulates further ethylene production, so once ripening starts it proceeds to
+              completion even if the external ethylene source is removed.
+            </p>
+            <p>
+              Two ethylene systems are recognised. <em>System 1</em> operates at very low levels in
+              unripe fruit and in vegetative tissue; at the onset of ripening it is superseded by
+              <em>System 2</em>, the autocatalytic burst that drives the ripening programme
+              (Bapat et al., 2010; Seymour et al., 2013). Our experiment relies on System 2: fruit
+              was held without any added ethylene, so the burst we observed was generated by the
+              fruit itself.
+            </p>
+          </div>
+
+          <!-- FIGURE 2 — a diagram you can draw or replace with a textbook figure -->
+          <figure class="figure" style="align-self:start">
+            <div class="figure__frame" style="aspect-ratio:4/3.4">
+              <img src="assets/img/fig02-climacteric-curve.png"
+                   alt="Diagram of the climacteric rise in respiration and the accompanying ethylene peak"
+                   data-fallback="Climacteric respiration &amp; ethylene curve">
+            </div>
+            <figcaption>
+              <b>Figure 2</b>
+              Idealised respiration and ethylene curves of a climacteric fruit. The ethylene peak
+              precedes the respiratory maximum; both are absent in non-climacteric fruit.
+              <em>Replace with your own diagram.</em>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         1.3 ETHYLENE
+         ================================================================== -->
+    <section class="section" id="ethylene">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">1.3 · The ripening hormone</p>
+          <h2 class="h2">Functions of ethylene in ripening</h2>
+          <p class="lede" style="margin-top:6px">
+            Ethylene (C<sub>2</sub>H<sub>4</sub>) is a gaseous plant hormone active at trace
+            concentrations — a few tenths of a microlitre per litre is enough to trigger ripening.
+          </p>
+        </div>
+
+        <!-- Biosynthesis, in one compact card -->
+        <div class="card" style="margin-bottom:28px">
+          <h4 class="h4">How the fruit makes it</h4>
+          <p class="mono" style="font-size:.82rem;color:var(--ink-2);line-height:2;margin:0">
+            methionine → <em>S</em>-adenosylmethionine (SAM) → 1-aminocyclopropane-1-carboxylic acid (ACC) → ethylene
+          </p>
+          <p class="small" style="margin-top:10px">
+            The two committed steps are catalysed by <strong>ACC synthase (ACS)</strong> and
+            <strong>ACC oxidase (ACO)</strong>. Both are encoded by multigene families whose
+            expression is strongly induced at the onset of ripening — which is exactly what makes
+            the burst autocatalytic. Ethylene is then perceived by membrane receptors such as
+            <strong>ETR1</strong>, and the signal is relayed through <strong>CTR1</strong> and
+            <strong>EIN2/EIN3-like</strong> transcription factors to the promoters of
+            ripening-related genes (Giovannoni, 2004).
+          </p>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="card">
+            <span class="card__num">Function 01</span>
+            <h3 class="h3">Colour change</h3>
+            <p class="small" style="margin:0">
+              Ethylene induces chlorophyll degradation (chlorophyllase, pheophytinase) and the
+              unmasking/stabilisation of carotenoids, so the peel turns from green to yellow.
+              This is the most visible marker of ripening and the basis of our colour index.
+            </p>
+          </div>
+          <div class="card">
+            <span class="card__num">Function 02</span>
+            <h3 class="h3">Softening</h3>
+            <p class="small" style="margin:0">
+              Cell-wall hydrolases — polygalacturonase, pectate lyase, pectin methylesterase,
+              β-galactosidase — plus expansins dissolve the middle lamella and loosen the wall,
+              dropping firmness from “hard” to “yielding” within days.
+            </p>
+          </div>
+          <div class="card">
+            <span class="card__num">Function 03</span>
+            <h3 class="h3">Starch → sugar</h3>
+            <p class="small" style="margin:0">
+              Starch is hydrolysed by α-amylase and starch phosphorylase and re-synthesised into
+              sucrose by sucrose-phosphate synthase. °Brix rises from roughly 4 to 20, and the
+              starchy taste is replaced by sweetness.
+            </p>
+          </div>
+          <div class="card">
+            <span class="card__num">Function 04</span>
+            <h3 class="h3">Aroma formation</h3>
+            <p class="small" style="margin:0">
+              Fatty acids and amino acids are converted to volatile esters (isoamyl acetate, butyl
+              acetate) by alcohol dehydrogenase and alcohol acyltransferase. Aroma is the last
+              quality attribute to develop and a sensitive indicator of overripeness.
+            </p>
+          </div>
+          <div class="card">
+            <span class="card__num">Function 05</span>
+            <h3 class="h3">Acidity &amp; astringency</h3>
+            <p class="small" style="margin:0">
+              Organic acids (malate, citrate) are respired away and tannins polymerise into
+              insoluble forms, so the fruit becomes less tart and loses its mouth-puckering
+              astringency.
+            </p>
+          </div>
+          <div class="card">
+            <span class="card__num">Function 06</span>
+            <h3 class="h3">Respiration &amp; senescence</h3>
+            <p class="small" style="margin:0">
+              Ethylene raises the respiration rate to supply the ATP and carbon skeletons ripening
+              demands. Past the ripe stage the same hormone accelerates senescence, which is why
+              overripe fruit deteriorates quickly.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout callout--leaf" style="margin-top:28px">
+          <div>
+            <p class="callout__label">Relevance to handling</p>
+            <p>
+              Because ethylene is a gas, it spreads. A single ripe fruit in a box of green ones will
+              ripen the whole box; a rotting fruit will do the same, faster. Ventilation,
+              segregation of ripe and unripe stock, and ethylene scrubbing (or 1-MCP treatment to
+              block the receptor) are all direct applications of the physiology summarised above.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         1.4 MATURITY INDICES
+         ================================================================== -->
+    <section class="section section--band" id="maturity">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">1.4 · Deciding when to harvest</p>
+          <h2 class="h2">Maturity indices for banana</h2>
+          <p class="lede" style="margin-top:6px">
+            A maturity index is a measurable characteristic that reliably separates a fruit that is
+            ready to be harvested from one that is not. “Mature” is not the same as “ripe”:
+            a mature fruit has the capacity to ripen properly, a ripe one has already done so.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data">
+            <caption>Table 1 · Maturity indices used commercially for banana</caption>
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>What is measured</th>
+                <th>Target at harvest</th>
+                <th>Use in this study</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Peel colour</strong></td>
+                <td>Visual colour stage of the peel, scored against a chart</td>
+                <td class="num">Index 1–2 (green, at most a trace of yellow)</td>
+                <td>Primary index — scored daily</td>
+              </tr>
+              <tr>
+                <td><strong>Finger fullness</strong></td>
+                <td>Loss of longitudinal angularity as the finger fills out</td>
+                <td class="num">75–80 % full grade (“three-quarter full”)</td>
+                <td>Used when selecting fruit</td>
+              </tr>
+              <tr>
+                <td><strong>Pulp : peel ratio</strong></td>
+                <td>Mass of pulp relative to peel</td>
+                <td class="num">≈ 1.2–1.4</td>
+                <td>Destructive check at sampling</td>
+              </tr>
+              <tr>
+                <td><strong>Finger diameter</strong></td>
+                <td>Calliper measurement at the mid-point</td>
+                <td class="num">Cultivar-specific minimum</td>
+                <td>Used when selecting fruit</td>
+              </tr>
+              <tr>
+                <td><strong>Dry matter</strong></td>
+                <td>Oven-dry mass as a percentage of fresh mass</td>
+                <td class="num">≈ 22–25 %</td>
+                <td>Not measured (optional)</td>
+              </tr>
+              <tr>
+                <td><strong>Age / heat units</strong></td>
+                <td>Days or accumulated degree-days from bunch emergence</td>
+                <td class="num">≈ 90–120 days</td>
+                <td>Recorded from the supplier</td>
+              </tr>
+              <tr>
+                <td><strong>Latex colour</strong></td>
+                <td>Colour of exudate at the cut pedicel</td>
+                <td class="num">Milky white (not watery)</td>
+                <td>Observed during destructive sampling</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid grid--2" style="margin-top:32px">
+          <div class="card">
+            <h3 class="h3">Why colour is used as the primary index</h3>
+            <p class="small" style="margin:0">
+              Colour is non-destructive, cheap, repeatable and strongly correlated with internal
+              ripeness in banana. A trained scorer can place a finger on a five-point scale within
+              seconds. Its weakness is subjectivity, which is why the scale must be defined
+              explicitly and applied under constant lighting — the approach adopted here and
+              described in <a href="methods.html#scales">Section 2.4</a>.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="h3">Why objective indices still matter</h3>
+            <p class="small" style="margin:0">
+              Colour can be misleading after cold storage or in fruit that has been gassed, and it
+              says nothing about sugar content. Commercial operations therefore pair the visual
+              index with at least one objective measure — dry matter, pulp : peel ratio or °Brix.
+              Our experiment relied on the visual index alone; adding one objective measure is the
+              single change that would most improve a repeat of it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap" style="padding-block:48px"><div data-render="next"></div></div>
+
+  </main>
+
+  <!-- FOOTER — identical on every page -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <h5>About this portfolio</h5>
+          <p class="small" style="margin:0">
+            Group assessment for STU2103 Basic Postharvest Technology (CLO 1), documenting the
+            ripening of a climacteric fruit from mature-green to edible-ripe.
+          </p>
+        </div>
+        <div>
+          <h5>Sections</h5>
+          <ul>
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="methods.html">Objective &amp; methods</a></li>
+            <li><a href="results.html">Results &amp; discussion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Reference</h5>
+          <ul>
+            <li><a href="conclusion.html#references">Reference list</a></li>
+            <li><a href="conclusion.html#acknowledgements">Acknowledgements</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__base">
+        <span>Universiti Malaysia Sarawak · Faculty of Resource Science and Technology</span>
+        <span>© <span data-year>2026</span> · Group e-portfolio</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
