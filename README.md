@@ -125,14 +125,42 @@ a gap, not as zero — that is why Figure 14 joins only days 1, 4 and 7 for swee
 - **Offline submission** — zip the folder; it works when opened locally because there
   is no build step and no external dependency.
 
-## 6. Notes
+## 6. Animation
+
+Sections fade and slide up as they scroll into view; the hero text rises on page load.
+Siblings in a grid are staggered 70 ms apart.
+
+| I want to… | Do this |
+|---|---|
+| Exclude one element | add `data-no-reveal` to it (or to any wrapper) |
+| Change which elements animate | edit `REVEAL_SELECTOR` in `assets/js/site.js` |
+| Turn all reveal animation off | delete the `initReveal()` call in `assets/js/site.js` |
+| Change travel distance | `--reveal-y` in `style.css`, section 15 |
+| Change speed | the `transition` durations in `style.css`, section 15 |
+
+The animation degrades safely: if JavaScript is off the inline `<script>` in `<head>`
+never adds the `js` class, so nothing is ever hidden, and the print stylesheet forces
+everything visible.
+
+**Motion preference.** The animation always runs. If the system asks for reduced motion
+the slide is shortened (18 px → 6 px, 0.72 s → 0.35 s) rather than removed. This is
+deliberate: on Windows, *Settings → Accessibility → Visual effects → Animation effects*
+being switched **off** makes Chrome report `prefers-reduced-motion: reduce`, so a strictly
+compliant site shows the visitor **no motion at all** — which looks like the animation is
+broken. If you want strict behaviour, delete the two `@media (prefers-reduced-motion:
+reduce)` blocks marked `STRICT` in `style.css`.
+
+## 7. Notes
 
 - No external libraries, no CDN, no network calls — the site works offline.
 - Tested at 390 px, 768 px and 1440 px widths; the nav collapses to a menu below 760 px.
 - Printing (Ctrl+P) produces a clean A4 layout with navigation removed and figures kept whole.
 
-## 7. Change log
+## 8. Change log
 
+- **v4** — motion preference no longer disables the animation (it shortens it), and a
+  scroll safety net reveals anything skipped by a fast flick or an anchor jump.
+- **v3** — added scroll-reveal and page-entrance animations, with a no-JS fallback.
 - **v2** — replaced the illustrative sample data with the group's real five-point
   scores (7 days, fingers a–e). Rebuilt Figure 14 from the Word chart
   "Firmness decrease vs sweetness increase"; the original plotted "–" as 0, which drew

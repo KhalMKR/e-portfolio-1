@@ -605,7 +605,8 @@ table.data tbody tr.is-key td { background: var(--leaf-soft); }
 /* --- Peel colour spectrum strip (signature element) --------------------- */
 .spectrum {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  /* --cols is set from data.js by site.js, so the strip always has one cell per stage */
+  grid-template-columns: repeat(var(--cols, 5), 1fr);
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--rule-2);
@@ -1044,7 +1045,92 @@ figure { margin: 0; }
 
 
 /* ============================================================================
-   15. RESPONSIVE
+   15. SCROLL REVEAL & PAGE ENTRANCE
+   ----------------------------------------------------------------------------
+   Elements fade and slide in as they enter the viewport (once only).
+
+   The hidden state is scoped to `.js` (set by a one-line inline script in each
+   <head>), so if JavaScript is off or fails, every element stays visible.
+
+   MOTION PREFERENCE: the animation always runs. When the operating system asks
+   for reduced motion the travel distance and duration are cut right down
+   (18px → 6px, 1.05s → .6s) instead of being switched off. This matters in
+   practice — Windows "Animation effects" being off makes Chrome report
+   `prefers-reduced-motion: reduce`, which would otherwise show a site with no
+   motion at all. To honour the preference strictly, delete the two
+   `prefers-reduced-motion: reduce` blocks marked STRICT below.
+
+   TO DISABLE ANIMATION ON ONE ELEMENT:  add  data-no-reveal
+   TO DISABLE IT SITE-WIDE:              delete the initReveal() call in site.js
+   Scroll-reveal targets are chosen in site.js → REVEAL_SELECTOR.
+   ========================================================================== */
+
+/* --- Page entrance: hero text animates on load (pure CSS, no JS needed) --- */
+.hero .kicker,
+.hero .display,
+.hero .lede,
+.hero .meta-grid,
+.page-head .kicker,
+.page-head .display,
+.page-head .lede {
+  animation: riseIn 1.15s cubic-bezier(.16,.84,.44,1) both;
+}
+.hero .display,      .page-head .display { animation-delay: .12s; }
+.hero .lede,         .page-head .lede    { animation-delay: .24s; }
+.hero .meta-grid                         { animation-delay: .4s; }
+.page-head .kicker,
+.page-head .display,
+.page-head .lede { animation-duration: .9s; }
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --- Scroll reveal ------------------------------------------------------ */
+.reveal {
+  /* Travel distance and delay are set per element from JS */
+  --reveal-y: 18px;
+  --reveal-delay: 0ms;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y));
+  transition:
+    opacity .9s cubic-bezier(.2,.7,.3,1),
+    transform 1.05s cubic-bezier(.2,.7,.3,1);
+  transition-delay: var(--reveal-delay);
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Alternate directions, available if you want them: add
+   class="reveal reveal--left" (or --right) in the HTML or via data-reveal. */
+.js .reveal--left  { transform: translateX(calc(var(--reveal-y) * -1.2)); }
+.js .reveal--right { transform: translateX(calc(var(--reveal-y) * 1.2)); }
+.js .reveal--plain { transform: none; }
+
+/* STRICT — gentler, shorter motion when the OS asks for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { --reveal-y: 6px; }
+  .js .reveal { transition-duration: .6s; }
+  .hero .kicker, .hero .display, .hero .lede, .hero .meta-grid,
+  .page-head .kicker, .page-head .display, .page-head .lede {
+    animation-duration: .7s;
+    animation-name: riseInSoft;
+  }
+  @keyframes riseInSoft {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+
+/* ============================================================================
+   16. RESPONSIVE
    ========================================================================== */
 @media (max-width: 940px) {
   .grid--sidebar { grid-template-columns: minmax(0, 1fr); }
@@ -1095,7 +1181,7 @@ figure { margin: 0; }
   .meta-grid { grid-template-columns: 1fr; }
   /* Keep all seven stages: the strip scrolls horizontally instead of hiding cells */
   .spectrum {
-    grid-template-columns: repeat(7, minmax(62px, 1fr));
+    grid-template-columns: repeat(var(--cols, 5), minmax(62px, 1fr));
     overflow-x: auto;
     border-radius: var(--radius-sm);
   }
@@ -1103,12 +1189,16 @@ figure { margin: 0; }
 
 
 /* ============================================================================
-   16. PRINT — clean A4 output if the marker prints the portfolio
+   17. PRINT — clean A4 output if the marker prints the portfolio
    ========================================================================== */
 @media print {
   :root { --shadow: none; --shadow-lg: none; }
   body { background: #fff; font-size: 10.5pt; }
   .nav, .filters, .next, .hero::after { display: none !important; }
+  /* Never let the reveal animation hide content on paper */
+  .js .reveal, .js .reveal.is-in { opacity: 1 !important; transform: none !important; }
+  .hero .kicker, .hero .display, .hero .lede, .hero .meta-grid,
+  .page-head .kicker, .page-head .display, .page-head .lede { animation: none !important; }
   .section { padding-block: 18pt; }
   .card, .figure, .table-wrap, .chart-card { box-shadow: none; break-inside: avoid; }
   figure, table, .callout { break-inside: avoid; }
@@ -1118,12 +1208,26 @@ figure { margin: 0; }
 
 
 /* ============================================================================
-   MOTION — respects the user's reduced-motion preference
+   MOTION — the fallback for users who ask for less movement
+   ----------------------------------------------------------------------------
+   This switches off decorative motion globally (hover transitions, marquees,
+   etc.). The entrance and scroll-reveal animations are explicitly exempted,
+   because they have already been shortened in section 15.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: .001ms !important;
     transition-duration: .001ms !important;
+  }
+
+  /* Keep the (shortened) entrance + reveal motion alive */
+  .hero .kicker, .hero .display, .hero .lede, .hero .meta-grid,
+  .page-head .kicker, .page-head .display, .page-head .lede {
+    animation-duration: .7s !important;
+  }
+  .js .reveal {
+    transition-duration: .6s !important;
+    transition-delay: var(--reveal-delay) !important;
   }
 }

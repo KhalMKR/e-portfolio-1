@@ -101,6 +101,7 @@
   function renderSpectrum() {
     $$('[data-render="spectrum"]').forEach(function (mount) {
       mount.classList.add("spectrum");   // the mount itself is the grid container
+      mount.style.setProperty("--cols", (DATA.peelScale || []).length);
       mount.innerHTML = (DATA.peelScale || []).map(function (p) {
         return '<div class="spectrum__cell" title="' + esc(p.index + " — " + p.label) + '">' +
                  '<div class="spectrum__swatch" style="--c:' + p.hex + '"></div>' +
@@ -441,7 +442,98 @@
   }
 
   /* ==========================================================================
-     9. SEQUENTIAL PAGE LINK (bottom of each page)
+     9. SCROLL REVEAL
+     Elements matching REVEAL_SELECTOR fade and slide in once, as they scroll
+     into view. Siblings inside the same container are staggered automatically.
+
+     • Exclude one element:   add  data-no-reveal  to it (or to a wrapper)
+     • Change what animates:  edit REVEAL_SELECTOR below
+     • Turn it off entirely:  remove the initReveal() call in init()
+     ====================================================================== */
+  var REVEAL_SELECTOR = [
+    ".section-head",
+    ".card",
+    ".stat",
+    "figure.figure",
+    ".chart-card",
+    ".table-wrap",
+    ".callout",
+    ".steps > li",
+    ".scale > li",
+    ".refs > li",
+    ".next"
+  ].join(",");
+
+  function initReveal() {
+    if (!("IntersectionObserver" in window)) return;
+    // NOTE: no early return for prefers-reduced-motion — the CSS shortens the
+    // animation instead of removing it (see style.css section 15).
+
+    var els = $$(REVEAL_SELECTOR).filter(function (el) {
+      // The hero and page headers animate on load via CSS, not on scroll.
+      return !el.closest("[data-no-reveal]") &&
+             !el.closest(".hero") &&
+             !el.closest(".page-head") &&
+             !el.closest(".nav");
+    });
+
+    // Group by parent so siblings can be staggered in sequence.
+    var groups = [];
+    els.forEach(function (el) {
+      el.classList.add("reveal");
+      var g = null;
+      for (var i = 0; i < groups.length; i++) if (groups[i].parent === el.parentNode) { g = groups[i]; break; }
+      if (!g) { g = { parent: el.parentNode, list: [] }; groups.push(g); }
+      g.list.push(el);
+    });
+
+    groups.forEach(function (g) {
+      g.list.forEach(function (el, i) {
+        // 90 ms between siblings, capped so long lists do not crawl.
+        el.style.setProperty("--reveal-delay", Math.min(i * 90, 450) + "ms");
+      });
+    });
+
+    var pending = els.slice();
+
+    function mark(el) {
+      el.classList.add("is-in");
+      var i = pending.indexOf(el);
+      if (i > -1) pending.splice(i, 1);
+      io.unobserve(el);              // animate once, never again
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) mark(entry.target);
+      });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.05 });
+
+    els.forEach(function (el) { io.observe(el); });
+
+    /* Safety net: a fast flick or an in-page anchor jump can carry an element
+       past the viewport between observer frames, leaving it invisible above
+       you. Anything that has reached the viewport is revealed on scroll too. */
+    var ticking = false;
+    function sweep() {
+      ticking = false;
+      var vh = window.innerHeight;
+      for (var i = pending.length - 1; i >= 0; i--) {
+        if (pending[i].getBoundingClientRect().top < vh * 0.94) mark(pending[i]);
+      }
+    }
+    function onScroll() {
+      if (ticking || !pending.length) return;
+      ticking = true;
+      requestAnimationFrame(sweep);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    sweep();
+  }
+
+  /* ==========================================================================
+     10. SEQUENTIAL PAGE LINK (bottom of each page)
      ====================================================================== */
   var PAGE_ORDER = [
     { key: "home",         file: "index.html",        title: "Overview" },
@@ -480,6 +572,7 @@
     renderRefs();
     renderGroup();
     initNext();
+    initReveal();
 
     // Charts are drawn in real pixels, so redraw them when the window is resized
     var resizeTimer;
