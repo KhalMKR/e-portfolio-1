@@ -35,23 +35,21 @@ list are **generated from `data.js`** — you never edit them twice.
 
 ## 2. The data currently in the site
 
-Taken from the group's "Master Daily Results Summary Table" and "Scoring Scale
-References Table":
+Taken from the group report (Table 1, Table 2 and Graph 1):
 
-| Day | Colour | Firmness | Sweetness | Fingers |
+| Day | Colour | Firmness | Sweetness | Stage |
 |---|---|---|---|---|
-| 1 | 1 | 1 | 1 | a, b, c |
-| 2 | 2 | 2 | – | a, b |
-| 3 | 2 | 2 | – | a, b |
-| 4 | 3 | 3 | 3 | a, b, d |
-| 5 | 4 | 3 | – | a, b |
-| 6 | 4 | 4 | – | a, b |
-| 7 | 5 | 5 | 5 | a, b, e |
+| 1 | 1 | 1 | 1 | Mature green |
+| 2 | 2 | 2 | – | Green with yellow traces |
+| 3 | 2 | 2 | – | Turning stage |
+| 4 | 3 | 3 | 3 | Intermediate |
+| 5 | 4 | 3 | – | Mostly yellow |
+| 6 | 4 | 4 | – | Edible ripe |
+| 7 | 5 | 5 | 5 | Overripe / spotted |
 
-Note on the scales: **all three score 1–5, and firmness is a softness rank** — 1 is
-the hardest fruit and 5 is mushy, so a *rising* firmness score means the fruit is
-softening. Sweetness is only scored on the days a finger was cut (1, 4, 7), because
-tasting requires cutting the fruit.
+All three parameters score 1–5, and **firmness is a softness rank** — 1 is the hardest fruit
+and 5 is mushy, so a *rising* firmness score means the fruit is softening. Sweetness was only
+scored on the days a sample was opened (1, 4 and 7), because tasting requires cutting the fruit.
 
 ## 3. Swapping the placeholders
 
@@ -59,11 +57,12 @@ tasting requires cutting the fruit.
 The gallery expects these files in `assets/img/` (any size; cropped to 4:3):
 
 ```
-day01-external.jpg   day01-internal.jpg   fig01-fruit.jpg
-day02-external.jpg   day04-internal.jpg   fig02-climacteric-curve.png
-day04-external.jpg   day07-internal.jpg   fig03-setup.jpg
-day05-external.jpg                        fig04-sampling.png
-day07-external.jpg
+fig01-labelled-bananas.jpg      (Figure 1 — methods page)
+
+day01-external.jpg   day05-external.jpg
+day02-external.jpg   day06-external.jpg
+day03-external.jpg   day07-external.jpg
+day04-external.jpg
 ```
 
 Save your photos with those names and refresh — no code changes needed. A missing
@@ -73,13 +72,14 @@ layout never breaks.
 To add or remove a photo, edit the `photos` array:
 
 ```js
-{ day: 6, date: "Day 6", stage: "Edible-ripe", view: "external",
-  fig: "13", src: "assets/img/day06-external.jpg", caption: "Your caption." }
+{ day: 6, date: "Day 6", stage: "Edible ripe", view: "external",
+  fig: "7", src: "assets/img/day06-external.jpg", caption: "Your caption." }
 ```
 
-`view` must be `"external"` or `"internal"` (drives the filter buttons). `fig` is the
+`view` is `"external"` (daily photos), `"internal"` (cut fruit) or `"setup"` (preparation).
+The filter buttons are built from whichever values appear in the array. `fig` is the
 figure number printed in the caption — if you insert photos, renumber the rest and
-the two chart figures (currently 13 and 14).
+the two chart figures (currently 9 and 10).
 
 ### Diagrams
 Figures 2, 3 and 4 are file-based. Drop your own image at the path in the
@@ -87,9 +87,10 @@ Figures 2, 3 and 4 are file-based. Drop your own image at the path in the
 shown while the file is missing.
 
 ### Tables
-Table 4 (daily observations) is generated — edit `observations` in `data.js`.
-Tables 1, 2, 3 and 5 are written directly in `introduction.html`, `methods.html` and
-`results.html`; search for `Table 2` etc. and edit the `<tr>` rows.
+Table 2 (daily observations) is generated — edit `observations` in `data.js`.
+Table 1 (the scoring scale, in `results.html`) and the maturity-index table
+(`introduction.html`, also numbered Table 1 there — renumber if you merge them) are written
+directly as `<tr>` rows.
 
 ### Charts
 Charts read straight from `observations`. Y-axis range and the "edible-ripe" marker
@@ -111,7 +112,7 @@ a gap, not as zero — that is why Figure 14 joins only days 1, 4 and 7 for swee
 - [ ] Replace every `Member One … Member Five` entry with real names and matric numbers.
 - [ ] Replace the placeholder observation dates with your real ones.
 - [ ] Replace all photographs; check each caption matches the image.
-- [ ] Refine the internal pulp descriptions in Table 5 and in `data.js` → `internal`.
+- [ ] Add the photographs (Figure 1 and Figures 2–8 are placeholders).
 - [ ] Verify the seven references are the ones you actually cited.
 - [ ] Attach the UNIMAS assignment cover page (full name, matric, portfolio link).
 - [ ] Publish (Netlify drop / GitHub Pages / Google Sites embed) and put the live URL
@@ -158,6 +159,9 @@ reduce)` blocks marked `STRICT` in `style.css`.
 
 ## 8. Change log
 
+- **v5** — content rebuilt from the group report: 6 samples from one stem, report Table 1 /
+  Table 2 / Graph 1, discussion sections 5.1–5.4 plus a limitations subsection, and a
+  conclusion written to close the report (the report had none).
 - **v4** — motion preference no longer disables the animation (it shortens it), and a
   scroll safety net reveals anything skipped by a fast flick or an anchor jump.
 - **v3** — added scroll-reveal and page-entrance animations, with a no-JS fallback.

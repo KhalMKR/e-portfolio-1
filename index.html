@@ -3,38 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ripening of the Cavendish banana · STU2103 E-Portfolio</title>
-  <meta name="description" content="E-Portfolio documenting the ripening of a climacteric fruit from mature-green to edible-ripe, STU2103 Basic Postharvest Technology.">
+  <title>Postharvest ripening of banana · STU2103 E-Portfolio</title>
+  <meta name="description" content="E-portfolio documenting the postharvest ripening of banana over seven days of storage, STU2103 Basic Postharvest Technology.">
 
-  <!-- Favicon (small inline illustration — safe to delete) -->
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-
-  <!-- Shared stylesheet. All colours/fonts are variables at the top of the file. -->
   <!-- Marks the document as JS-enabled so the scroll-reveal animation can start
        from a hidden state. Remove this line and everything simply stays visible. -->
   <script>document.documentElement.classList.add('js');</script>
 
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<!-- data-page="home" tells site.js which nav link to highlight -->
 <body data-page="home">
 
-  <!-- ======================================================================
-       NAVIGATION — copy this block identically to every page.
-       Only the <body data-page="..."> value changes per page.
-       ==================================================================== -->
+  <!-- NAV — identical on every page -->
   <nav class="nav" aria-label="Main">
     <div class="nav__inner">
       <a class="brand" href="index.html">
         <span class="brand__mark" aria-hidden="true"></span>
-        <span>Ripening Study <span class="brand__code">STU2103</span></span>
+        <span>Banana Ripening <span class="brand__code">STU2103</span></span>
       </a>
-
       <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-
       <ul class="nav__links">
         <li><a href="index.html"        data-page="home">Overview</a></li>
         <li><a href="introduction.html" data-page="introduction">Introduction</a></li>
@@ -45,46 +36,40 @@
     </div>
   </nav>
 
-  <!-- ======================================================================
-       HERO
-       ==================================================================== -->
+  <!-- HERO -->
   <header class="hero">
     <div class="wrap">
       <p class="kicker">
         STU2103 Basic Postharvest Technology
-        <span class="kicker__sep">/</span> E-Portfolio 1
+        <span class="kicker__sep">/</span> E-Portfolio
         <span class="kicker__sep">/</span> CLO 1
       </p>
 
       <h1 class="display">
-        Ripening of the <em>Cavendish banana</em> from
-        <span style="white-space:nowrap">mature-green</span> to edible-ripe
+        Postharvest ripening of <em>banana</em> over seven days of storage
       </h1>
 
       <p class="lede">
-        A seven-day postharvest experiment documenting the climacteric ripening of
-        <span class="sci" data-fill="fruit.scientific">Musa acuminata</span> using one fixed
-        five-point scale for peel colour, firmness and sweetness, supported by daily photographs
-        and destructive sampling at the early, intermediate and overripe stages.
+        Six bananas from a single stem, scored daily for peel colour, firmness and sweetness on a
+        1–5 scale — from uniform green, through edible ripe, to brown senescent spotting.
       </p>
 
-      <!-- Key facts. Values annotated with data-fill are pulled from data.js -->
       <dl class="meta-grid">
         <div>
           <dt>Fruit</dt>
-          <dd data-fill="fruit.common">Cavendish banana</dd>
+          <dd><span class="sci">Musa</span> spp. (banana)</dd>
         </div>
         <div>
           <dt>Ripening class</dt>
           <dd data-fill="fruit.ripeningClass">Climacteric</dd>
         </div>
         <div>
-          <dt>Observation period</dt>
-          <dd><span data-fill="fruit.durationDays">7</span> days, daily</dd>
+          <dt>Storage period</dt>
+          <dd><span data-fill="fruit.durationDays">7</span> days</dd>
         </div>
         <div>
-          <dt>Storage condition</dt>
-          <dd data-fill="fruit.storage">Ambient room temperature</dd>
+          <dt>Condition</dt>
+          <dd data-fill="fruit.storage">Stored at room conditions</dd>
         </div>
       </dl>
     </div>
@@ -92,20 +77,22 @@
 
   <main>
 
-    <!-- ====================================================================
-         AT A GLANCE
-         ================================================================== -->
+    <!-- AT A GLANCE -->
     <section class="section">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">At a glance</p>
-          <h2 class="h2">What this portfolio shows</h2>
+          <h2 class="h2">The experiment in four numbers</h2>
         </div>
 
         <div class="grid grid--4">
           <div class="card card--flat stat">
+            <span class="stat__value" data-fill="fruit.samples">6</span>
+            <span class="stat__label">bananas from one stem, each labelled individually</span>
+          </div>
+          <div class="card card--flat stat">
             <span class="stat__value" data-fill="fruit.durationDays">7</span>
-            <span class="stat__label">consecutive days of observation, from harvest maturity to overripe</span>
+            <span class="stat__label">consecutive days of observation and photography</span>
           </div>
           <div class="card card--flat stat">
             <span class="stat__value">5</span>
@@ -113,82 +100,70 @@
           </div>
           <div class="card card--flat stat">
             <span class="stat__value">3</span>
-            <span class="stat__label">destructive samples — early, intermediate and overripe pulp</span>
-          </div>
-          <div class="card card--flat stat">
-            <span class="stat__value">5</span>
-            <span class="stat__label">fingers from a single bunch: two observed daily, three cut</span>
+            <span class="stat__label">parameters scored every day: colour, firmness, sweetness</span>
           </div>
         </div>
 
-        <!-- Signature visual: the peel-colour progression ------------- -->
+        <!-- Signature visual: the peel-colour scale -->
         <div style="margin-top:48px">
-          <p class="eyebrow" style="margin-bottom:14px">Peel-colour index used in this study</p>
+          <p class="eyebrow" style="margin-bottom:14px">Peel-colour scale used in this study</p>
           <div data-render="spectrum"></div>
           <p class="small" style="margin-top:12px">
-            Stage 1 is the mature-green harvest index; stage 4 is edible-ripe; stage 5 marks the
-            onset of overripening. The scale is defined in full in the
-            <a href="methods.html#scales">materials and methods</a>.
+            Score 1 is the mature-green harvest stage, score 4 is edible ripe and score 5 is
+            overripe. The full definitions for all three parameters are in
+            <a href="results.html#scales">Table 1</a>.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ====================================================================
-         ABSTRACT
-         ================================================================== -->
+    <!-- ABSTRACT -->
     <section class="section section--band">
       <div class="wrap">
         <div class="grid grid--sidebar">
           <div class="prose">
-            <p class="eyebrow">Abstract</p>
-            <h2 class="h2" style="margin:10px 0 20px">Ripening is an ethylene-driven programme, not decay</h2>
+            <p class="eyebrow">Summary</p>
+            <h2 class="h2" style="margin:10px 0 20px">Ripening is a continuation of development, not decay</h2>
 
             <p class="dropcap">
-              Bananas are harvested at the mature-green stage and ripen after harvest because
-              they are climacteric: a small autocatalytic burst of ethylene triggers a coordinated
-              sequence of physiological changes — chlorophyll degradation, starch hydrolysis,
-              cell-wall disassembly and volatile synthesis — that convert a hard, starchy,
-              astringent fruit into a soft, sweet, aromatic one. This portfolio documents that
-              sequence as it occurs in five Cavendish fingers held at ambient room temperature.
+              Banana (<span class="sci">Musa</span> spp.) is one of the most widely eaten tropical
+              fruits because of its nutritional value, taste and availability, yet it is also highly
+              perishable. The fruit continues to ripen after harvest, and during that time physical
+              and chemical changes alter its appearance, texture and taste.
             </p>
             <p>
-              The fingers were scored daily for peel colour, firmness and sweetness on a single
-              five-point scale and photographed under identical lighting. Peel colour advanced from
-              1 to 5 over seven days, holding for two days before the autocatalytic phase and
-              reaching brown spotting by Day 7. The firmness score rose from 1 to 5 — the fruit
-              went from very hard to mushy — and sweetness rose from 1 to 5 between the first and
-              third destructive samples, from astringent and starchy to very sweet.
+              This experiment followed six bananas from a single stem over seven days of storage.
+              Peel colour, firmness and sweetness were scored daily against a five-point scale.
+              The peel moved from uniform dark green on Day 1 to full yellow by Days 5–6, and brown
+              senescent spotting had begun by Day 7. The fruit kept its structural integrity until
+              Day 3 and then softened rapidly between Days 4 and 7, ending soft and mushy.
+              Sweetness rose from astringent and starchy on Day 1, through the first detectable
+              sweetness on Day 4, to a rich sugary profile on Day 7.
             </p>
             <p>
-              The results are consistent with the accepted model of climacteric ripening and
-              illustrate why maturity indices at harvest, temperature management and ethylene
-              control are the three levers available to anyone handling this crop after harvest.
+              Together these three trends confirm the climacteric pattern: a lag phase in which
+              internal ethylene stays basal, followed by an autocatalytic ethylene rise that drives
+              pigment breakdown, starch hydrolysis and cell-wall disassembly at the same time.
             </p>
           </div>
 
-          <!-- Sidebar: contents ------------------------------------- -->
           <aside class="card card--tint" style="align-self:start">
             <h4 class="h4">Contents</h4>
             <ul class="toc">
-              <li><a href="introduction.html">Introduction <span>01</span></a></li>
-              <li><a href="methods.html#objective">Objective <span>02</span></a></li>
-              <li><a href="methods.html#materials">Materials <span>02</span></a></li>
-              <li><a href="methods.html#procedure">Procedure <span>02</span></a></li>
-              <li><a href="results.html#observations">Observations <span>03</span></a></li>
-              <li><a href="results.html#gallery">Photographic record <span>03</span></a></li>
-              <li><a href="results.html#discussion">Discussion <span>03</span></a></li>
-              <li><a href="conclusion.html">Conclusion <span>04</span></a></li>
-              <li><a href="conclusion.html#references">References <span>04</span></a></li>
+              <li><a href="introduction.html">1 · Introduction <span>→</span></a></li>
+              <li><a href="methods.html#objectives">2 · Objectives <span>→</span></a></li>
+              <li><a href="methods.html#materials">3 · Materials &amp; method <span>→</span></a></li>
+              <li><a href="results.html">4 · Results <span>→</span></a></li>
+              <li><a href="results.html#discussion">5 · Discussion <span>→</span></a></li>
+              <li><a href="conclusion.html">6 · Conclusion <span>→</span></a></li>
+              <li><a href="conclusion.html#references">7 · References <span>→</span></a></li>
             </ul>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- ====================================================================
-         GROUP
-         ================================================================== -->
+    <!-- GROUP -->
     <section class="section" id="group">
       <div class="wrap">
         <div class="section-head">
@@ -204,14 +179,10 @@
       </div>
     </section>
 
-    <!-- Next page link (rendered by site.js) -->
     <div class="wrap" style="padding-bottom:56px"><div data-render="next"></div></div>
 
   </main>
 
-  <!-- ======================================================================
-       FOOTER — copy identically to every page
-       ==================================================================== -->
   <footer class="footer">
     <div class="wrap">
       <div class="footer__grid">
@@ -219,14 +190,14 @@
           <h5>About this portfolio</h5>
           <p class="small" style="margin:0">
             Group assessment for STU2103 Basic Postharvest Technology (CLO 1), documenting the
-            ripening of a climacteric fruit from mature-green to edible-ripe.
+            postharvest ripening of banana over seven days of storage.
           </p>
         </div>
         <div>
           <h5>Sections</h5>
           <ul>
             <li><a href="introduction.html">Introduction</a></li>
-            <li><a href="methods.html">Objective &amp; methods</a></li>
+            <li><a href="methods.html">Materials &amp; method</a></li>
             <li><a href="results.html">Results &amp; discussion</a></li>
           </ul>
         </div>
@@ -245,7 +216,6 @@
     </div>
   </footer>
 
-  <!-- data.js must load BEFORE site.js -->
   <script src="assets/js/data.js"></script>
   <script src="assets/js/site.js"></script>
 </body>

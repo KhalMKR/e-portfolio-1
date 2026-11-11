@@ -130,34 +130,30 @@
         var p = peel(o.peelIndex);
         return "<tr>" +
           '<td class="num">' + o.day + "</td>" +
-          '<td class="nowrap">' + esc(fmtDate(o.date)) + "</td>" +
-          "<td>" + esc(o.stage) + "</td>" +
-          '<td><span class="chip" style="background:' + p.hex + '"></span>' + esc(o.external) + "</td>" +
-          '<td class="num">' + o.peelIndex + "</td>" +
+          '<td class="num"><span class="chip" style="background:' + p.hex + '"></span>' + o.peelIndex + "</td>" +
           '<td class="num">' + Number(o.firmness).toFixed(0) + " " + dots(o.firmness) + "</td>" +
           '<td class="num">' + (o.taste == null ? "–" : Number(o.taste).toFixed(0) + " " + dots(o.taste)) + "</td>" +
-          '<td class="nowrap">' + esc(o.fruits || "–") + "</td>" +
-          "<td>" + esc(o.internal || "–") + "</td>" +
+          "<td><strong>" + esc(o.stage) + "</strong></td>" +
+          "<td>" + esc(o.desc || "–") + "</td>" +
           "</tr>";
       }).join("");
 
       mount.innerHTML =
         '<div class="table-wrap">' +
           "<table class=\"data\">" +
-            "<caption>Table 4 · Daily ripening observations, day 1–" + (DATA.observations || []).length +
-              " (fingers a and b; " + String(get("fruit.storage") || "").toLowerCase() + ")</caption>" +
+            "<caption>Table 2 · Daily ripening progression and physical characteristics of the banana samples across " +
+              (DATA.observations || []).length + " days of storage</caption>" +
             "<thead><tr>" +
-              "<th>Day</th><th>Date</th><th>Stage</th><th>Peel colour (external)</th>" +
-              "<th>Colour<br>(1–5)</th><th>Firmness<br>(1–5)</th><th>Sweetness<br>(1–5)</th>" +
-              "<th>Fingers<br>scored</th><th>Internal sample</th>" +
+              "<th>Day</th><th>Peel<br>colour</th><th>Firmness<br>(1–5)</th><th>Sweetness<br>(1–5)</th>" +
+              "<th>Ripening stage</th><th>Physical characteristics</th>" +
             "</tr></thead>" +
             "<tbody>" + rows + "</tbody>" +
           "</table>" +
         "</div>" +
         '<p class="small" style="margin-top:12px">' +
-          "Fingers a and b were scored every day and never cut. Sweetness required cutting the fruit, " +
-          "so it was assessed only on days 1, 4 and 7, when fingers c, d and e were used for the early, " +
-          "intermediate and ripe internal samples. “–” = not assessed that day." +
+          "Scores follow the 1–5 scale in Table 1. Firmness is scored as a softness rank, so a higher score means a " +
+          "softer fruit. Sweetness could only be judged by tasting, so it was scored on the days a sample was opened " +
+          "(Days 1, 4 and 7); “–” means not assessed that day." +
         "</p>";
     });
   }
@@ -178,11 +174,23 @@
     var fig = document.createElement("figure");
     fig.className = "figure";
     fig.setAttribute("data-view", photo.view);
+
+    // Label text, e.g. "Day 4 · Intermediate" or "Set-up · Labelling".
+    // photo.date is skipped when it merely repeats the day number.
+    var label = [];
+    if (photo.day) label.push("Day " + photo.day);
+    if (photo.date && String(photo.date).toLowerCase().indexOf("day") !== 0) label.push(photo.date);
+    label.push(photo.stage);
+
+    var tag = label.map(function (part, i) {
+      return (i === 0 && photo.day) ? "<b>" + esc(part) + "</b>" : esc(part);
+    }).join(" · ");
+    var plain = label.join(" · ");
+
     fig.innerHTML =
       '<div class="figure__frame">' +
-        '<span class="figure__tag">Day <b>' + photo.day + "</b> · " + esc(photo.date) + " · " + esc(photo.stage) + "</span>" +
-        '<img alt="' + esc(photo.view + " view of the fruit, day " + photo.day + ", " + photo.stage) + '" ' +
-             'src="' + esc(photo.src) + '">' +
+        '<span class="figure__tag">' + tag + "</span>" +
+        '<img alt="' + esc(plain) + '" src="' + esc(photo.src) + '">' +
       "</div>" +
       "<figcaption><b>Figure " + esc(photo.fig) + "</b>" + esc(photo.caption) + "</figcaption>";
 
@@ -198,7 +206,7 @@
       ph.className = "placeholder";
       ph.innerHTML = PLACEHOLDER_ICON +
         "<strong>Photo placeholder</strong>" +
-        "<span>Day " + photo.day + " · " + esc(photo.stage) + "</span>" +
+        "<span>" + esc(plain) + "</span>" +
         "<span>Replace with:</span><code>" + esc(photo.src.split("/").pop()) + "</code>";
       frame.appendChild(ph);
     }
@@ -220,11 +228,20 @@
     var filterBar = $('[data-render="filters"]');
     if (!filterBar) return;
 
-    var groups = [
-      { key: "all", label: "All (" + photos.length + ")" },
-      { key: "external", label: "External view" },
-      { key: "internal", label: "Internal view" }
-    ];
+    // Build the filter buttons from whatever `view` values actually exist.
+    var VIEW_LABELS = { external: "Daily photos", internal: "Internal view", setup: "Set-up" };
+    var present = {};
+    photos.forEach(function (p) { present[p.view] = true; });
+    var keys = Object.keys(VIEW_LABELS).filter(function (k) { return present[k]; });
+
+    if (keys.length < 2) { filterBar.innerHTML = ""; return; }  // one group: filters are noise
+
+    var groups = [{ key: "all", label: "All (" + photos.length + ")" }].concat(
+      keys.map(function (k) {
+        var n = photos.filter(function (p) { return p.view === k; }).length;
+        return { key: k, label: VIEW_LABELS[k] + " (" + n + ")" };
+      })
+    );
     filterBar.innerHTML = groups.map(function (g, i) {
       return '<button class="filter" type="button" data-filter="' + g.key + '" aria-pressed="' +
              (i === 0 ? "true" : "false") + '">' + g.label + "</button>";

@@ -4,23 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Results &amp; discussion · STU2103 E-Portfolio</title>
-  <meta name="description" content="Daily ripening scores, the firmness–sweetness chart, the photographic record and discussion of the ethylene-driven changes in banana.">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <!-- Marks the document as JS-enabled so the scroll-reveal animation can start
-       from a hidden state. Remove this line and everything simply stays visible. -->
+  <meta name="description" content="Daily ripening scores, scoring scale, charts and discussion of the postharvest changes in banana over seven days.">
+
   <script>document.documentElement.classList.add('js');</script>
 
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body data-page="results">
 
-  <!-- NAV — identical on every page -->
   <nav class="nav" aria-label="Main">
     <div class="nav__inner">
       <a class="brand" href="index.html">
         <span class="brand__mark" aria-hidden="true"></span>
-        <span>Ripening Study <span class="brand__code">STU2103</span></span>
+        <span>Banana Ripening <span class="brand__code">STU2103</span></span>
       </a>
       <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -37,109 +35,105 @@
 
   <header class="page-head">
     <div class="wrap">
-      <p class="kicker"><span class="kicker__sep">/</span> Section 03</p>
+      <p class="kicker"><span class="kicker__sep">/</span> Sections 4 &amp; 5</p>
       <h1 class="display">Results &amp; discussion</h1>
       <p class="lede">
-        Seven days of daily scoring on two fingers, three destructive samples and eight labelled
-        photographs — followed by an explanation of what changed and why.
+        The scoring scale, the daily record, the photographic evidence and the trends — followed by
+        the physiology that explains them.
       </p>
     </div>
   </header>
 
   <main>
 
-    <!-- ====================================================================
-         3.1 OBSERVATIONS
-         ================================================================== -->
-    <section class="section" id="observations">
+    <!-- 4. RESULTS -->
+    <section class="section" id="results">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">3.1 · Observed results</p>
-          <h2 class="h2">Daily observation record</h2>
+          <p class="eyebrow">4 · Results</p>
+          <h2 class="h2">Seven days of storage</h2>
           <p class="lede" style="margin-top:6px">
-            Colour and firmness were scored every day on fingers a and b; sweetness was scored
-            whenever a finger was cut for internal assessment.
+            The evaluation of the postharvest ripening of the banana samples was conducted over a
+            seven-day storage period. Peel colour, firmness and sweetness were monitored using a
+            standardised scoring scale from 1 to 5.
           </p>
         </div>
 
-        <!-- Table 4 is generated from assets/js/data.js → observations -->
-        <div data-render="table"></div>
-
-        <!-- Table 5 — the three destructive samples -->
-        <h3 class="h3" style="margin:40px 0 16px">Destructive samples: early, intermediate and ripe</h3>
+        <!-- TABLE 1 — Scoring scale (as printed in the report) -->
+        <div id="scales"></div>
         <div class="table-wrap">
           <table class="data">
-            <caption>Table 5 · Internal assessment of the three sampled fingers</caption>
+            <caption>Table 1 · Scoring scale reference table</caption>
             <thead>
               <tr>
-                <th>Stage</th>
-                <th>Day</th>
-                <th>Finger</th>
-                <th>Colour<br>(1–5)</th>
-                <th>Firmness<br>(1–5)</th>
-                <th>Sweetness<br>(1–5)</th>
-                <th>Internal observation</th>
+                <th>Score</th>
+                <th>Peel colour (visual)</th>
+                <th>Firmness (physical touch)</th>
+                <th>Taste / sweetness (flavour)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Early</strong> (mature-green)</td>
                 <td class="num">1</td>
-                <td class="num">c</td>
-                <td class="num">1</td>
-                <td class="num">1</td>
-                <td class="num">1</td>
-                <td>Pulp hard, pale and starchy; astringent, inedible</td>
-              </tr>
-              <tr class="is-key">
-                <td><strong>Intermediate</strong> (ripening)</td>
-                <td class="num">4</td>
-                <td class="num">d</td>
-                <td class="num">3</td>
-                <td class="num">3</td>
-                <td class="num">3</td>
-                <td>Pulp softening; starch taste reduced, slightly sweet</td>
+                <td><strong>All green.</strong> Entirely green and hard with no yellow present.</td>
+                <td><strong>Very hard.</strong> Very firm and completely hard.</td>
+                <td><strong>Astringent / starchy.</strong> Puckering in the mouth and inedible.</td>
               </tr>
               <tr>
-                <td><strong>Ripe</strong> (overripe)</td>
-                <td class="num">7</td>
-                <td class="num">e</td>
+                <td class="num">2</td>
+                <td><strong>Green with yellow trace.</strong> Slightly yellow at the edges but
+                    mostly green.</td>
+                <td><strong>Hard.</strong> Slightly yielding but still quite firm.</td>
+                <td><strong>Slightly sour.</strong> Not very sweet but still firm in texture and has
+                    a mild taste.</td>
+              </tr>
+              <tr>
+                <td class="num">3</td>
+                <td><strong>More yellow than green.</strong> Progressing fruit; edges are still
+                    green.</td>
+                <td><strong>Moderately firm.</strong> Moderately yielding to a light squeeze.</td>
+                <td><strong>Slightly sweet.</strong> Reduced starch and a good taste.</td>
+              </tr>
+              <tr class="is-key">
+                <td class="num">4</td>
+                <td><strong>All yellow.</strong> Peels are all yellow and the fruit is ripe.</td>
+                <td><strong>Soft / edible.</strong> Relatively soft and gives somewhat to a light
+                    squeeze.</td>
+                <td><strong>Sweet and flavourful.</strong> Has banana taste and a fragrance.</td>
+              </tr>
+              <tr>
                 <td class="num">5</td>
-                <td class="num">5</td>
-                <td class="num">5</td>
-                <td>Pulp very soft and mushy; very sweet</td>
+                <td><strong>Yellow with brown spots.</strong> Overripe; peels are yellow with some
+                    brown spots.</td>
+                <td><strong>Very soft / mushy.</strong> Mushy, spongy or oversoft.</td>
+                <td><strong>Very sweet / overripe.</strong> Very soft and very sweet.</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="small" style="margin-top:12px">
-          <!-- EDIT: refine the internal descriptions once you review your pulp photographs -->
-          The three samples were taken from three different fingers, so each row describes a
-          different fruit rather than the same fruit at three moments.
-        </p>
+
+        <!-- TABLE 2 — generated from assets/js/data.js → observations -->
+        <div style="margin-top:36px" data-render="table"></div>
       </div>
     </section>
 
-    <!-- ====================================================================
-         3.2 CHARTS
-         ================================================================== -->
+    <!-- 4.2 CHARTS -->
     <section class="section section--band" id="trends">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">3.2 · Trends</p>
-          <h2 class="h2">How the change progressed over time</h2>
+          <p class="eyebrow">4.1 · Trend charts</p>
+          <h2 class="h2">Colour, firmness and sweetness over seven days</h2>
           <p class="lede" style="margin-top:6px">
-            Both charts are drawn directly from the observation data, so correcting a score in
-            <span class="mono">assets/js/data.js</span> updates the graphs automatically.
+            Both charts are drawn from the scores in Table 2, so correcting a value in
+            <span class="mono">assets/js/data.js</span> updates them automatically.
           </p>
         </div>
 
         <div class="grid" style="align-items:start">
 
-          <!-- CHART 1: peel colour -->
           <div class="chart-card">
             <div class="chart-card__head">
-              <h3 class="chart-card__title">Figure 13 · Peel-colour score</h3>
+              <h3 class="chart-card__title">Figure 9 · Peel-colour score</h3>
               <span class="chart-card__note">1 = all green · 5 = brown spots</span>
             </div>
             <div data-render="chart"
@@ -147,32 +141,31 @@
                  data-series="peelIndex"
                  data-labels="Peel-colour score (1–5)"
                  data-y-min="0" data-y-max="5" data-y-ticks="5"
-                 data-mark-day="5" data-mark-label="edible-ripe"></div>
+                 data-mark-day="6" data-mark-label="edible ripe"></div>
             <div class="legend"></div>
             <p class="small" style="margin:12px 0 0">
-              The score steps up on Day 2, holds for two days, then climbs one step every one to
-              two days until brown spotting appears on Day 7.
+              The score steps up on Day 2 and again on Day 4, is fully yellow by Day 5, and reaches
+              brown spotting on Day 7.
             </p>
           </div>
 
-          <!-- CHART 2: firmness + sweetness (the group's original graph) -->
+          <!-- The group report presents this chart as "Graph 1" -->
           <div class="chart-card">
             <div class="chart-card__head">
-              <h3 class="chart-card__title">Figure 14 · Firmness decrease vs sweetness increase</h3>
-              <span class="chart-card__note">1–5 scores</span>
+              <h3 class="chart-card__title">Figure 10 · Firmness decrease vs sweetness increase</h3>
+              <span class="chart-card__note">Graph 1 in the report</span>
             </div>
             <div data-render="chart"
                  data-title="Firmness and sweetness scores over seven days"
                  data-series="firmness,taste"
-                 data-labels="Firmness (1 = hard, 5 = mushy)|Sweetness (1 = astringent, 5 = very sweet)"
+                 data-labels="Firmness (1 = very hard, 5 = mushy)|Sweetness (1 = astringent, 5 = very sweet)"
                  data-y-min="0" data-y-max="5" data-y-ticks="5"
-                 data-mark-day="5" data-mark-label="edible-ripe"></div>
+                 data-mark-day="6" data-mark-label="edible ripe"></div>
             <div class="legend"></div>
             <p class="small" style="margin:12px 0 0">
               Firmness is plotted as the 1–5 softness score, so the line rises as the fruit
-              physically softens. Sweetness was scored only on days 1, 4 and 7, so that line is
-              dashed: it joins the three days actually tasted and does not claim a reading on the
-              days in between.
+              softens. Sweetness was scored only on Days 1, 4 and 7, so that line is dashed: it
+              joins the three days actually tasted and claims nothing about the days between.
             </p>
           </div>
 
@@ -182,178 +175,174 @@
           <div class="card card--flat">
             <p class="card__num">Colour</p>
             <p class="small" style="margin:0">
-              1 → 5 across seven days. The colour break came on Day 2, the peel was fully yellow
-              by Day 5, and brown spotting appeared on Day 7.
+              1 → 5. Uniform green on Day 1, first yellow by Day 2, fully yellow by Day 5, brown
+              senescent spotting by Day 7.
             </p>
           </div>
           <div class="card card--flat">
             <p class="card__num">Firmness</p>
             <p class="small" style="margin:0">
-              1 → 5, i.e. hard to mushy. Softening was fastest at the end of the week: the score
-              went from 3 on Day 5 to 4 on Day 6 and 5 on Day 7.
+              1 → 5. Structure held until Day 3, then softens quickly between Days 4 and 7, ending
+              soft and mushy.
             </p>
           </div>
           <div class="card card--flat">
             <p class="card__num">Sweetness</p>
             <p class="small" style="margin:0">
-              1 → 3 → 5 at days 1, 4 and 7. The largest jump, from starchy to slightly sweet,
-              happened between Day 1 and Day 4.
+              1 → 3 → 5 on Days 1, 4 and 7. Astringency and starchiness dominate early; a rich
+              sugary profile by Day 7.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================================================================
-         3.3 PHOTOGRAPHIC RECORD
-         ================================================================== -->
+    <!-- 4.2 PHOTOGRAPHIC RECORD -->
     <section class="section" id="gallery">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">3.3 · Photographic record</p>
-          <h2 class="h2">Ripening, day by day</h2>
+          <p class="eyebrow">4.2 · Photographic record</p>
+          <h2 class="h2">The samples, day by day</h2>
           <p class="lede" style="margin-top:6px">
-            Every photograph is labelled with the day and ripening stage. External views document
-            the peel; internal views document the three destructive samples.
+            One photograph per observation day, labelled with the day and ripening stage.
           </p>
         </div>
 
-        <!-- Filter buttons are generated by site.js -->
         <div class="filters" data-render="filters"></div>
-
-        <!-- Gallery is generated from data.js → photos -->
         <div class="gallery" data-render="gallery"></div>
 
         <p class="small" style="margin-top:20px">
-          <!-- EDIT: put your images in assets/img/ using the filenames listed in data.js.
+          <!-- EDIT: save your photos into assets/img/ using the filenames listed in data.js.
                Any missing file shows a labelled placeholder instead of a broken image. -->
-          Placeholders are shown until you add the photographs to
-          <span class="mono">assets/img/</span>. Filenames and captions are listed in
-          <span class="mono">assets/js/data.js</span> → <span class="mono">photos</span>.
+          Photographs are placeholders until the images are added to
+          <span class="mono">assets/img/</span>. Each placeholder names the file it expects;
+          the captions and filenames are listed in <span class="mono">assets/js/data.js</span> →
+          <span class="mono">photos</span>.
         </p>
       </div>
     </section>
 
-    <!-- ====================================================================
-         3.4 DISCUSSION
-         ================================================================== -->
-    <section class="section section--band" id="discussion">
+    <!-- 4.3 VISUAL AND PHYSICAL TRENDS -->
+    <section class="section section--band" id="visual">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">3.4 · Discussion</p>
-          <h2 class="h2">How and why the fruit changed</h2>
+          <p class="eyebrow">4.3 · Visual and physical trends</p>
+          <h2 class="h2">What the three parameters showed</h2>
         </div>
 
         <div class="prose" style="max-width:74ch">
-          <h3 class="h3" style="margin-top:0">Peel colour: chlorophyll goes, carotenoids stay</h3>
           <p>
-            The first visible change appeared on Day 2, when the edges of the fingers turned
-            slightly yellow while the rest of the peel remained green. From there the score climbed
-            one step every one to two days until brown spotting appeared on Day 7. The yellow is not
-            newly made pigment: banana peel already contains carotenoids, which are masked by
-            chlorophyll. Ethylene induces chlorophyll degradation through chlorophyllase and
-            pheophytinase, exposing the yellow and orange carotenoids underneath
-            (Seymour et al., 2013).
+            The bananas showed clear changes from uniform dark green on Day 1 to full yellow by
+            Days 5–6, and by Day 7 brown senescent spotting had begun.
           </p>
           <p>
-            The two-day plateau on Days 2 and 3 is the most informative feature of Figure 13. It is
-            the point at which ethylene concentration is still too low to trigger the fruit's own
-            synthesis; once autocatalytic (System 2) production begins, colour change accelerates
-            through Days 4 to 6 and then stops climbing only because the chlorophyll has run out and
-            the next visible stage is browning (Bapat et al., 2010).
+            The firmness of the banana showed a direct relationship to ripening time. The fruit
+            maintained its structural integrity until Day 3 before undergoing rapid softening
+            between Days 4 and 7, ending with a soft and mushy texture.
+          </p>
+          <p>
+            The flavour and sweetness of the banana increased throughout the observation period.
+            Astringency and starchiness dominated the early stages, sweetness appeared by Day 4, and
+            the profile peaked into a rich, sugary taste by Day 7.
+          </p>
+          <p>
+            Read together, the three parameters did not move in lockstep. Colour ran ahead of
+            firmness — the peel was fully yellow on Day 5 while the fruit was still only moderately
+            soft — and sweetness could only be sampled on three of the seven days. The relationship
+            between softening and sweetening is the subject of Figure 10.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DISCUSSION -->
+    <section class="section" id="discussion">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">5 · Discussion</p>
+          <h2 class="h2">Why the fruit changed</h2>
+        </div>
+
+        <div class="prose" style="max-width:74ch">
+          <h3 class="h3" style="margin-top:0">5.1 · Physiological classification and the respiratory climacteric</h3>
+          <p>
+            The observed ripening stages confirm the classification of banana as a climacteric
+            fruit. Unlike non-climacteric crops, climacteric fruits exhibit a surge in respiration
+            rate together with an increase in ethylene biosynthesis. Ethylene acts as a
+            phytohormone regulator which initiates and coordinates the ripening of the fruit
+            (Tipu &amp; Sherif, 2024).
+          </p>
+          <p>
+            In this study, the lag phase observed between Days 1 and 2 is similar to
+            pre-climacteric dormancy, where internal ethylene remained basal. The transition from
+            Day 3 onward marked the start of the climacteric rise, where autocatalytic ethylene
+            production stimulated rapid metabolic shifts across the pigment, carbohydrate and
+            cell-wall fractions. The unchanged scores on Day 3 are consistent with that lag: the
+            fruit had begun to turn but had not yet entered the rapid phase.
           </p>
 
-          <h3 class="h3">Firmness: the cell wall is taken apart</h3>
+          <h3 class="h3">5.2 · Pigment degradation and colour evolution</h3>
           <p>
-            Firmness moved from 1 (very hard) to 5 (mushy) over the same seven days, but on a
-            different schedule from colour. Softening is not one event but the cumulative action of
-            several enzyme families — polygalacturonase and pectate lyase solubilise the middle
-            lamella, pectin methylesterase alters the degree of pectin methylation,
-            β-galactosidase strips side chains, and expansins loosen the wall non-enzymatically
-            (Giovannoni, 2004). Because these enzymes act on different substrates at different
-            rates, firmness keeps falling after the peel has already reached full yellow.
+            The transition of peel colour from green to yellow and subsequently brown is driven by
+            two distinct biochemical mechanisms. First, chlorophyll breakdown: in green mature
+            fruits, chlorophyll masks the accessory pigments. Ripening triggers chlorophyllase and
+            other catabolic enzymes that degrade the porphyrin ring and phytol tail of chlorophyll
+            <em>a</em> and <em>b</em>. This degradation unmasks pre-existing carotenoids, shifting
+            the visual phenotype to a vibrant yellow.
           </p>
           <p>
-            That lag is visible in Figure 14: firmness held at 3 on Day 5, when the peel was already
-            fully yellow, and only then climbed to 4 and 5 on Days 6 and 7. The practical consequence
-            is that colour is a poor guide on its own — fruit can look ready while still being firm
-            enough to handle, and conversely can be soft while still slightly green.
+            Second, once the fruit passes edible ripeness, senescence follows: cell membranes lose
+            integrity, phenolic compounds oxidise and brown spotting appears on the peel — the
+            score-5 stage recorded on Day 7.
           </p>
 
-          <h3 class="h3">Sweetness: starch becomes sugar</h3>
+          <h3 class="h3">5.3 · Carbohydrate metabolism and flavour development</h3>
           <p>
-            Sweetness rose from 1 to 3 by Day 4 and to 5 by Day 7. In the mature-green fruit most
-            carbohydrate is stored as starch, which is tasteless and chalky; ripening activates
-            α-amylase and starch phosphorylase to release glucose and maltose, and
-            sucrose-phosphate synthase re-assembles much of it as sucrose (Wills &amp; Golding,
-            2016). This is why the Day 1 sample tasted astringent rather than merely bland: the
-            sugar was physically present, but locked in an insoluble polymer.
+            The shift from an astringent, starchy profile to a sweet, flavourful condition is driven
+            by several factors. During the green stage, carbon is stored primarily as amyloplast
+            starch. Upon ethylene induction, hydrolytic enzymes accelerate the conversion of
+            insoluble polymeric starch into soluble sugars. This osmotic shift increases sugar
+            concentration, removing starch astringency and producing the characteristic sweet taste
+            and the volatile ester aromas associated with edible ripeness.
           </p>
           <p>
-            The jump from 1 to 3 between Day 1 and Day 4 is the largest single change in the dataset.
-            It coincides with the start of the autocatalytic phase and with the first slight
-            softening, which fits the accepted model in which starch hydrolysis and cell-wall
-            disassembly are both ethylene-induced and roughly simultaneous. Full flavour arrived
-            later still: the volatile esters that give banana its aroma — isoamyl acetate and butyl
-            acetate — are formed by alcohol dehydrogenase and alcohol acyltransferase from fatty
-            acid and amino acid precursors, and aroma is typically the last attribute to develop
-            (Saltveit, 1999).
+            Because sweetness was only tasted on Days 1, 4 and 7, the trend is a three-point series
+            rather than a continuous curve. It nonetheless brackets the whole range: starchy and
+            inedible, then slightly sweet, then very sweet.
           </p>
 
-          <h3 class="h3">Reading the two curves together</h3>
+          <h3 class="h3">5.4 · Textural softening and cell-wall modification</h3>
           <p>
-            Figure 14 was built to test one simple prediction: if softening and sweetening are both
-            outputs of the same ethylene programme, their scores should rise together. They do — both
-            lines start at 1, both are mid-scale by Day 4 and both reach 5 by Day 7 — but they do not
-            rise at the same rate. Softening is continuous and gradual, whereas sweetness is a series
-            of steps between the days on which a finger was cut. Part of that difference is biology
-            and part is the design: sweetness was sampled on only three days, so its line is a
-            straight interpolation and cannot show the small day-to-day variation that firmness does.
+            The continuous decline of firmness results from the enzymatic disassembly of the plant
+            cell-wall matrix and middle lamella. Pectic substances, hemicellulose and cellulose
+            undergo solubilisation and depolymerisation mediated by enzymes such as
+            polygalacturonase, pectin methylesterase and β-cellulase. As intercellular adhesion
+            decreases and cell turgor pressure changes, tissue cohesion breaks down — accounting for
+            the increased compressibility and eventual mushiness observed on the final storage day.
+          </p>
+          <p>
+            This explains the shape of the firmness curve in Figure 10. The early plateau (Days 1–3)
+            reflects a wall that is still largely intact; the steep section from Day 4 corresponds to
+            the point at which the hydrolytic enzymes have accumulated enough product to separate
+            cells from one another.
           </p>
 
-          <h3 class="h3">The internal samples and the end of the window</h3>
-          <p>
-            The three cut fingers confirm the same sequence from the inside. Finger c (Day 1) was
-            hard, pale and starchy with an astringent, inedible taste. Finger d (Day 4) had begun to
-            soften, the starch taste had dropped and sweetness was detectable. Finger e (Day 7) was
-            very soft and mushy and very sweet — the fruit had passed its best eating quality, and
-            the brown spots on the peel marked the same change.
-          </p>
-          <p>
-            That last point is worth stating plainly: by Day 7 all three attributes scored 5, and on
-            this scale 5 means both “very sweet” and “overripe”. The experiment therefore cannot
-            separate the peak of eating quality from the beginning of decay, because the scale does
-            not have a distinct point for each.
-          </p>
-
-          <h3 class="h3">Unexpected results and limitations</h3>
+          <h3 class="h3">5.5 · Limitations</h3>
           <ul class="list">
-            <li><strong>Sweetness looks like it collapses in the first chart.</strong> The original
-                spreadsheet graph plotted “–” (not assessed) as 0, which drew the sweetness line down
-                to zero on Days 2, 3, 5 and 6. Figure 14 here treats those days as missing values and
-                joins only the days that were actually scored, which is why the two graphs look
-                different. The correction does not change the underlying data.</li>
-            <li><strong>The scale cannot distinguish “ripe” from “overripe” at the top end.</strong>
-                Score 5 is defined as very sweet <em>and</em> overripe, so Day 7 scores full marks in
-                every category even though the fruit was already past its best. A six-point scale,
-                or a separate “overripe” flag, would separate the two.</li>
-            <li><strong>Five levels is coarse.</strong> Two consecutive days can carry the same score
-                even when the fruit changed noticeably (Days 2 and 3; Days 5 and 6). Differences of
-                one point are therefore not necessarily meaningful.</li>
-            <li><strong>Each internal sample was a different finger.</strong> Fingers c, d and e may
-                have differed slightly in maturity before the experiment began, so part of the
-                difference between the three internal descriptions reflects the fruit rather than
-                time.</li>
-            <li><strong>No instrumental measurement.</strong> Colour, firmness and taste were judged
-                by eye, by hand and by mouth. A colorimeter, a penetrometer or a refractometer would
-                have made the scores reproducible by another group.</li>
-            <li><strong>Temperature was not logged.</strong> Ripening rate is strongly
-                temperature-dependent, so day-to-day variation in how fast the scores moved may be
+            <li><strong>One stem, six samples.</strong> All samples came from a single bunch, so
+                there is no independent replication and the results describe this fruit rather than
+                bananas in general.</li>
+            <li><strong>Subjective scoring.</strong> Colour, firmness and taste were judged by eye,
+                by hand and by mouth. A colour chart, a penetrometer or a refractometer would make
+                the scores reproducible by another group.</li>
+            <li><strong>Five levels is coarse.</strong> Two consecutive days can carry the same
+                score even when the fruit changed visibly (Days 2–3, Days 5–6), so a difference of
+                one point is not necessarily meaningful.</li>
+            <li><strong>Sweetness sampled on three days only.</strong> Tasting requires cutting the
+                fruit, so the sweetness line in Figure 10 is an interpolation between three points.</li>
+            <li><strong>Temperature and humidity were not recorded.</strong> Ripening rate is
+                strongly temperature-dependent, so some of the day-to-day variation may be
                 environmental rather than physiological.</li>
-            <li><strong>No ethylene measurement and no replication.</strong> The autocatalytic burst
-                was inferred from the shape of the curves, not measured, and all five fingers came
-                from one bunch. The findings describe this fruit under these conditions, not
-                Cavendish bananas in general.</li>
           </ul>
         </div>
       </div>
@@ -370,14 +359,14 @@
           <h5>About this portfolio</h5>
           <p class="small" style="margin:0">
             Group assessment for STU2103 Basic Postharvest Technology (CLO 1), documenting the
-            ripening of a climacteric fruit from mature-green to edible-ripe.
+            postharvest ripening of banana over seven days of storage.
           </p>
         </div>
         <div>
           <h5>Sections</h5>
           <ul>
             <li><a href="introduction.html">Introduction</a></li>
-            <li><a href="methods.html">Objective &amp; methods</a></li>
+            <li><a href="methods.html">Materials &amp; method</a></li>
             <li><a href="results.html">Results &amp; discussion</a></li>
           </ul>
         </div>
